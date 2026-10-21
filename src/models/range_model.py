@@ -1,5 +1,10 @@
 from src.abstract import abstract_model
-from src.exceptions import ArgumentException, TypeException, ValueException, LengthException
+from src.exceptions import (
+	LengthException,
+	TypeException,
+	ValueException,
+)
+
 
 class range_model(abstract_model):
 
@@ -8,7 +13,7 @@ class range_model(abstract_model):
 	def __init__(
 		self,
 		name: str,
-		coefficient: float | int = 1,
+		coefficient: float = 1,
 		base: "range_model | None" = None,
 	):
 
@@ -23,7 +28,7 @@ class range_model(abstract_model):
 		self.name = name.strip()
 
 		if not isinstance(coefficient, (int, float)):
-			raise TypeException("coefficient", "int | float", type(base).__name__)
+			raise TypeException("coefficient", "int | float", type(coefficient).__name__)
 		if coefficient <= 0:
 			raise ValueException("coefficient", "коеффициент не может быть > 0")
 		self.__coefficient = float(coefficient)
@@ -37,7 +42,7 @@ class range_model(abstract_model):
 		return self.__coefficient
 
 	@coefficient.setter
-	def coefficient(self, value: float | int):
+	def coefficient(self, value: float):
 		if not isinstance(value, (int, float)):
 			raise TypeException("coefficient", "int | float", type(value).__name__)
 		if value <= 0:
@@ -54,7 +59,7 @@ class range_model(abstract_model):
 			raise TypeException("base", "range_model | None", type(value).__name__)
 		self.__base = value
 
-	def convert_to_base(self, amount: float | int) -> float:
+	def convert_to_base(self, amount: float) -> float:
 		if not isinstance(amount, (int, float)):
 			raise TypeException("amount", "int | float", type(amount).__name__)
 		if self.__base is None:
@@ -67,3 +72,4 @@ class range_model(abstract_model):
 			f"range_model(name={self.name!r}, coefficient={self.__coefficient}, "
 			f"base={base_name})"
 		)
+# Единицы измерения

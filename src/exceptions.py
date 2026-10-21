@@ -27,3 +27,9 @@ class ValueException(ArgumentException):
 		if message:
 			msg += f": {message}"
 		super().__init__(msg)
+
+
+class StockBlockedException(ValueException):
+	def __init__(self, message: str = "Недостаточно остатков на складе для списания"):
+		super().__init__("stock", message)
+

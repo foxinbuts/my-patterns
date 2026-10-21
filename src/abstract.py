@@ -1,5 +1,6 @@
-from abc import ABC
 import uuid
+from abc import ABC
+
 
 class abstract_model(ABC):
     def __init__(self):

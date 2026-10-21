@@ -1,5 +1,6 @@
 from src.abstract import abstract_model
-from src.exceptions import TypeException, ValueException, LengthException
+from src.exceptions import LengthException, TypeException, ValueException
+
 
 class group_model(abstract_model):
 

@@ -3,25 +3,25 @@
 Покрывают корректное создание всех моделей со всеми вариантами параметров
 и работу с моделью единицы измерения.
 """
-import unittest
-import sys
 import os
+import sys
+import unittest
 
 # Добавляем корень проекта в sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from src.abstract import abstract_model
-from src.models.range_model import range_model
-from src.models.group_model import group_model
-from src.models.nomenclature_model import nomenclature_model
-from src.models.organization_model import organization_model
-from src.models.warehouse_model import warehouse_model
 from src.exceptions import (
     ArgumentException,
     LengthException,
     TypeException,
     ValueException,
 )
+from src.models.group_model import group_model
+from src.models.nomenclature_model import nomenclature_model
+from src.models.organization_model import organization_model
+from src.models.range_model import range_model
+from src.models.warehouse_model import warehouse_model
 
 
 class TestRangeModel(unittest.TestCase):
