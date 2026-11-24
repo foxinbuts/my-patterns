@@ -126,3 +126,28 @@ class FilterPrototypeFactory:
     def get_registered_models(cls) -> List[Type[abstract_model]]:
         """Возвращает список зарегистрированных моделей"""
         return list(cls._prototypes.keys())
+
+
+def _matches_condition(self, item: T, condition: FilterCondition) -> bool:
+    """Проверяет соответствие одному условию"""
+    field_value = self._get_nested_value(item, condition.field_name)
+
+    if field_value is None:
+        return False
+
+    if condition.filter_type == FilterType.EQUALS:
+        return field_value == condition.value
+    elif condition.filter_type == FilterType.LIKE:
+        if not isinstance(field_value, str) or not isinstance(condition.value, str):
+            return False
+        return condition.value.lower() in field_value.lower()
+    elif condition.filter_type == FilterType.LESS_THAN:
+        return field_value < condition.value
+    elif condition.filter_type == FilterType.LESS_OR_EQUAL:
+        return field_value <= condition.value
+    elif condition.filter_type == FilterType.GREATER_THAN:
+        return field_value > condition.value
+    elif condition.filter_type == FilterType.GREATER_OR_EQUAL:
+        return field_value >= condition.value
+
+    return False
