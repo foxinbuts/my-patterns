@@ -1,0 +1,26 @@
+[
+  {
+    "operation_type": "DEPOSIT",
+    "quantity": 100.0,
+    "warehouse_id": "uuid-склада-1",
+    "nomenclature_id": "uuid-номенклатуры-1",
+    "date": "2024-01-15T10:00:00",
+    "description": "Поступление от поставщика"
+  },
+  {
+    "operation_type": "WITHDRAW",
+    "quantity": 30.0,
+    "warehouse_id": "uuid-склада-1",
+    "nomenclature_id": "uuid-номенклатуры-1",
+    "date": "2024-01-20T14:30:00",
+    "description": "Использование в производстве"
+  },
+  {
+    "operation_type": "DEPOSIT",
+    "quantity": 50.0,
+    "warehouse_id": "uuid-склада-1",
+    "nomenclature_id": "uuid-номенклатуры-2",
+    "date": "2024-01-18T09:00:00",
+    "description": "Поступление от поставщика"
+  }
+]
